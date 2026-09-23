@@ -3,7 +3,7 @@
 
 namespace Banner
 {
-    void display()
+    void show()
     {
         std::cout << "Dispatch diagnostic\n";
     }

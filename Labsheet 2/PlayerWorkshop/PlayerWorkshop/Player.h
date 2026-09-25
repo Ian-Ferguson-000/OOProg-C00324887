@@ -4,8 +4,9 @@ class Player
 {
 public:
     enum class PlayerClass { WARRIOR, WIZARD, ARCHER };
-    static constexpr int MAX_HEALTH{ 500 };
+    static constexpr int MAX_HEALTH{ 100 };
     Player() = default;
+    Player(int t_health, PlayerClass t_class);
     void takeDamage();
     int health() const;
     PlayerClass playerClass() const;

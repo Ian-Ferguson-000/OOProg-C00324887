@@ -1,6 +1,6 @@
 #include <iostream>
 int main()
 {
-    std::cout << "Player workshop\n";
+    std::cout << "Player sweatshop\n";
     return 0;
 }

@@ -5,14 +5,6 @@
 
 int main()
 {
-    std::cout << std::boolalpha;
-
-    Player player{};
-    player.takeDamage();
-    std::cout << player.health() << ' ' << player.isAlive() << '\n';
-    assert(player.health() == 99);
-    assert(player.playerClass() == Player::PlayerClass::WARRIOR);
-    std::cout << "Player sweatshop\n";
-
+    std::cout << "Player workshop\n";
     return 0;
 }

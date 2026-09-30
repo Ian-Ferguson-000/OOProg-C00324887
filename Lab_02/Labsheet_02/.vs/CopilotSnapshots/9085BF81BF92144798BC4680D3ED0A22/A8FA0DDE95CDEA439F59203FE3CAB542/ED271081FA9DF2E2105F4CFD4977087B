@@ -1,0 +1,10 @@
+﻿#pragma once
+class TrainingBot
+{
+
+private: int m_health;
+
+
+};
+
+public: default constructor, constructor(int startHealth), void takeDamage(int amount), int(getHealth) const, bool isAlive() const;

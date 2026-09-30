@@ -10,6 +10,6 @@ public:
 	explicit TrainingBot(int startHealth);
 
 	void takeDamage(int amount);
-	int getHealth() const;
+	int health() const;
 	bool isAlive() const;
 };

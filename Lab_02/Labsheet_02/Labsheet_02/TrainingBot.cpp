@@ -18,7 +18,7 @@ void TrainingBot::takeDamage(int amount)
 		m_health = 0;
 }
 
-int TrainingBot::getHealth() const
+int TrainingBot::health() const
 {
 	return m_health;
 }

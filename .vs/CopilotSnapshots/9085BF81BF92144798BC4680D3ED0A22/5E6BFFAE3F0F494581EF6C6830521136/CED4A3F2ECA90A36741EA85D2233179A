@@ -1,0 +1,15 @@
+﻿#pragma once
+
+class TrainingBot
+{
+private:
+	int m_health;
+
+public:
+	TrainingBot();
+	explicit TrainingBot(int startHealth);
+
+	void takeDamage(int amount);
+	int getHealth() const;
+	bool isAlive() const;
+};

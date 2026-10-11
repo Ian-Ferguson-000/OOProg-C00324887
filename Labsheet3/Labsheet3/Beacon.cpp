@@ -22,3 +22,14 @@ bool Beacon::active() const
 }
 
 // Private methods
+void Beacon::activate(int t_strength)
+{
+	m_strength = t_strength;
+	m_active = true;
+}
+
+void Beacon::reset()
+{
+	m_strength = 0;
+	m_active = false;
+}

@@ -32,9 +32,6 @@
     <ClInclude Include="Beacon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Reciever.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BeaconPool.h">
       <Filter>Header Files</Filter>
     </ClInclude>

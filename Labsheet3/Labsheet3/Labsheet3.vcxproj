@@ -148,7 +148,6 @@
     <ClInclude Include="Beacon.h" />
     <ClInclude Include="BeaconPool.h" />
     <ClInclude Include="Receiver.h" />
-    <ClInclude Include="Reciever.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

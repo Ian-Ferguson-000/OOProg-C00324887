@@ -4,6 +4,11 @@ int BeaconPool::s_successfulRequests{0};
 
 int BeaconPool::request(int t_strength)
 {
+	// Validate: only accept strengths in range 1..100
+	if (t_strength < 1 || t_strength > 100)
+	{
+		return -1;
+	}
 	for (int i = 0; i < CAPACITY; ++i)
 	{
 		if (!m_beacons[i].active())
@@ -50,7 +55,7 @@ int BeaconPool::strengthAt(int t_index) const
 {
 	if (t_index < 0 || t_index >= CAPACITY)
 	{
-		return 0;
+		return -1;
 	}
 	return m_beacons[t_index].strength();
 }

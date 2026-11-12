@@ -1,0 +1,65 @@
+﻿#include <iostream>
+#include <typeinfo>
+
+#include "ArenaObjects.h"
+#include "Inspector.h"
+
+int main()
+{
+	std::cout << std::boolalpha;
+	std::cout << "Arena object inspector\n\n";
+
+	Guard guard{60};
+	EliteGuard elite{90, 15};
+	SupplyCrate crate{4};
+
+	ArenaObject const* selected{&guard};
+
+	std::cout << "Shared behaviour\n";
+	selected->report();
+	selected = &elite;
+	selected->report();
+	selected = &crate;
+	selected->report();
+
+	std::cout << '\n';
+	std::cout << "Checked guard views\n";
+	std::cout << "Guard: " << readGuardHealth(&guard) << '\n';
+	std::cout << "Elite guard: " << readGuardHealth(&elite) << '\n';
+	std::cout << "Crate: " << readGuardHealth(&crate) << '\n';
+	std::cout << "None: " << readGuardHealth(nullptr) << '\n';
+
+	std::cout << '\n';
+	std::cout << "Exact type checks\n";
+	std::cout << "Guard is exact Guard: " << isExactGuard(&guard) << '\n';
+	std::cout << "Elite is exact Guard: " << isExactGuard(&elite) << '\n';
+	std::cout << "Elite is exact EliteGuard: " << (typeid(elite) == typeid(EliteGuard)) << '\n';
+	std::cout << "Crate is exact Guard: " << isExactGuard(&crate) << '\n';
+
+	selected = &elite;
+	std::cout << "Pointer is ArenaObject const*: " << (typeid(selected) == typeid(ArenaObject const*)) << '\n';
+
+	std::cout << '\n';
+	std::cout << "Reference casts\n";
+	std::cout << "Guard reference: " << requireGuardHealth(guard) << '\n';
+	std::cout << "Crate reference: ";
+	try
+	{
+		std::cout << requireGuardHealth(crate) << '\n';
+	}
+	catch (std::bad_cast const&)
+	{
+		std::cout << "not a Guard\n";
+	}
+
+	ArenaObject const* slots[]{&guard, &elite, &crate, nullptr};
+
+	std::cout << '\n';
+	std::cout << "Selection\n";
+	std::cout << "Guard-compatible: " << countGuardViews(slots, 4) << '\n';
+	std::cout << "Exact guards: " << countExactGuards(slots, 4) << '\n';
+	std::cout << "Empty selection: " << countGuardViews(nullptr, 0) << '\n';
+	std::cout << "Missing storage: " << countExactGuards(nullptr, 4) << '\n';
+
+	return 0;
+}
